@@ -78,47 +78,47 @@ export default function Home() {
         </header>
 
         {/* Hero Section */}
-        <section className="relative max-w-[1400px] mx-auto px-6 md:px-12 pt-12 md:pt-24 flex flex-col md:flex-row items-center">
+        <section className="relative max-w-[1400px] mx-auto px-6 md:px-12 pt-12 md:pt-20 pb-24 flex flex-col lg:flex-row items-center justify-between">
           {/* Left Content */}
-          <div className="w-full md:w-1/3 z-10 md:pr-12">
+          <div className="w-full lg:w-1/3 z-10 lg:pr-16 xl:pr-24 flex flex-col justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
               >
-                <h1 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3">
-                  <span className="text-[#1e40af] font-light text-2xl">/</span> {slide.title}
+                <h1 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4 tracking-tight">
+                  <span className="text-[#1e40af] font-light text-3xl">/</span> {slide.title}
                 </h1>
-                <p className="text-gray-600 mb-12 leading-relaxed text-sm max-w-sm h-20">
+                <p className="text-gray-500 mb-12 leading-loose text-sm max-w-sm h-24">
                   {slide.description}
                 </p>
-                <button className="border border-[#1e40af] text-[#1e40af] px-10 py-3.5 text-xs font-bold tracking-widest hover:bg-[#1e40af] hover:text-white transition-colors">
+                <button className="border border-[#1e40af] text-[#1e40af] px-12 py-4 text-xs font-bold tracking-[0.2em] hover:bg-[#1e40af] hover:text-white transition-all duration-300">
                   BUY {slide.price}
                 </button>
               </motion.div>
             </AnimatePresence>
 
-            <div className="mt-24 md:mt-32">
-              <button className="flex items-center gap-2 text-xs font-bold tracking-wide text-gray-900 hover:opacity-70 transition-opacity">
-                <ChevronDown className="w-4 h-4" strokeWidth={2} />
+            <div className="mt-24 lg:mt-40">
+              <button className="flex items-center gap-3 text-xs font-bold tracking-[0.15em] text-gray-900 hover:opacity-60 transition-opacity uppercase">
+                <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
                 Product details
               </button>
             </div>
           </div>
 
           {/* Right Image */}
-          <div className="w-full md:w-2/3 relative mt-16 md:mt-0">
-            <div className="relative w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden">
+          <div className="w-full lg:w-2/3 relative mt-20 lg:mt-0">
+            <div className="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9] overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentSlide}
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
+                  exit={{ opacity: 0, scale: 1.03 }}
+                  transition={{ duration: 0.7, ease: "easeInOut" }}
                   className="absolute inset-0"
                 >
                   <Image
@@ -134,16 +134,16 @@ export default function Home() {
             </div>
             
             {/* Pagination */}
-            <div className="absolute -bottom-8 right-0 flex items-center gap-6 text-xs font-bold tracking-widest">
-              <span className="w-4">0{currentSlide + 1}</span>
-              <div className="w-16 h-px bg-gray-300"></div>
-              <span className="text-gray-400 w-4">0{heroSlides.length}</span>
+            <div className="absolute -bottom-12 right-0 flex items-center gap-8 text-xs font-bold tracking-[0.2em]">
+              <span className="w-5 text-right">0{currentSlide + 1}</span>
+              <div className="w-24 h-[1px] bg-gray-300"></div>
+              <span className="text-gray-400 w-5">0{heroSlides.length}</span>
               <button 
                 onClick={nextSlide}
-                className="text-[#1e40af] hover:translate-x-1 transition-transform cursor-pointer p-2 -mr-2"
+                className="text-[#1e40af] hover:translate-x-2 transition-transform duration-300 cursor-pointer p-2 -mr-2"
                 aria-label="Next slide"
               >
-                <ArrowRight className="w-4 h-4" strokeWidth={2} />
+                <ArrowRight className="w-5 h-5" strokeWidth={1.5} />
               </button>
             </div>
           </div>
