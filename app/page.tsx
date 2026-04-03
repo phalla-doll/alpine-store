@@ -1,7 +1,49 @@
+'use client';
+
+import { useState } from 'react';
 import { Menu, ChevronLeft, ChevronDown, ArrowRight, X } from 'lucide-react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'motion/react';
+
+const heroSlides = [
+  {
+    id: 1,
+    title: "Sunglasses",
+    description: "French know-how with high-technology lenses in order to never be taken by surprise when there is a sharp bright sunny turn in the road.",
+    price: "115 €",
+    image: "https://picsum.photos/seed/sunglasses_alpine/1200/600"
+  },
+  {
+    id: 2,
+    title: "Leather Jacket",
+    description: "Premium leather crafted for the ultimate driving experience. Windproof and stylish for any occasion.",
+    price: "450 €",
+    image: "https://picsum.photos/seed/jacket_alpine/1200/600"
+  },
+  {
+    id: 3,
+    title: "Driving Gloves",
+    description: "Perforated leather gloves ensuring perfect grip and breathability during long scenic drives.",
+    price: "120 €",
+    image: "https://picsum.photos/seed/gloves_hero_alpine/1200/600"
+  },
+  {
+    id: 4,
+    title: "Travel Duffle",
+    description: "Spacious and elegant weekender bag. Fits perfectly in the trunk of your sports car.",
+    price: "320 €",
+    image: "https://picsum.photos/seed/duffle_hero_alpine/1200/600"
+  }
+];
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const slide = heroSlides[currentSlide];
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-blue-100">
       {/* Top Section with subtle background */}
@@ -39,15 +81,25 @@ export default function Home() {
         <section className="relative max-w-[1400px] mx-auto px-6 md:px-12 pt-12 md:pt-24 flex flex-col md:flex-row items-center">
           {/* Left Content */}
           <div className="w-full md:w-1/3 z-10 md:pr-12">
-            <h1 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3">
-              <span className="text-[#1e40af] font-light text-2xl">/</span> Sunglasses
-            </h1>
-            <p className="text-gray-600 mb-12 leading-relaxed text-sm max-w-sm">
-              French know-how with high-technology lenses in order to never be taken by surprise when there is a sharp bright sunny turn in the road.
-            </p>
-            <button className="border border-[#1e40af] text-[#1e40af] px-10 py-3.5 text-xs font-bold tracking-widest hover:bg-[#1e40af] hover:text-white transition-colors">
-              BUY 115 €
-            </button>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h1 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3">
+                  <span className="text-[#1e40af] font-light text-2xl">/</span> {slide.title}
+                </h1>
+                <p className="text-gray-600 mb-12 leading-relaxed text-sm max-w-sm h-20">
+                  {slide.description}
+                </p>
+                <button className="border border-[#1e40af] text-[#1e40af] px-10 py-3.5 text-xs font-bold tracking-widest hover:bg-[#1e40af] hover:text-white transition-colors">
+                  BUY {slide.price}
+                </button>
+              </motion.div>
+            </AnimatePresence>
 
             <div className="mt-24 md:mt-32">
               <button className="flex items-center gap-2 text-xs font-bold tracking-wide text-gray-900 hover:opacity-70 transition-opacity">
@@ -59,24 +111,38 @@ export default function Home() {
 
           {/* Right Image */}
           <div className="w-full md:w-2/3 relative mt-16 md:mt-0">
-            <div className="relative w-full aspect-[16/9] md:aspect-[2/1]">
-              {/* Using a placeholder that looks like a product */}
-              <Image
-                src="https://picsum.photos/seed/sunglasses_alpine/1200/600"
-                alt="Sunglasses"
-                fill
-                className="object-cover mix-blend-multiply"
-                referrerPolicy="no-referrer"
-                priority
-              />
+            <div className="relative w-full aspect-[16/9] md:aspect-[2/1] overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentSlide}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    className="object-cover mix-blend-multiply"
+                    referrerPolicy="no-referrer"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
             
             {/* Pagination */}
             <div className="absolute -bottom-8 right-0 flex items-center gap-6 text-xs font-bold tracking-widest">
-              <span>01</span>
+              <span className="w-4">0{currentSlide + 1}</span>
               <div className="w-16 h-px bg-gray-300"></div>
-              <span className="text-gray-400">04</span>
-              <button className="text-[#1e40af] hover:translate-x-1 transition-transform">
+              <span className="text-gray-400 w-4">0{heroSlides.length}</span>
+              <button 
+                onClick={nextSlide}
+                className="text-[#1e40af] hover:translate-x-1 transition-transform cursor-pointer p-2 -mr-2"
+                aria-label="Next slide"
+              >
                 <ArrowRight className="w-4 h-4" strokeWidth={2} />
               </button>
             </div>
