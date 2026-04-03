@@ -11,28 +11,28 @@ const heroSlides = [
     title: "Sunglasses",
     description: "French know-how with high-technology lenses in order to never be taken by surprise when there is a sharp bright sunny turn in the road.",
     price: "115 €",
-    image: "https://picsum.photos/seed/sunglasses_alpine/1200/600"
+    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 2,
     title: "Leather Jacket",
     description: "Premium leather crafted for the ultimate driving experience. Windproof and stylish for any occasion.",
     price: "450 €",
-    image: "https://picsum.photos/seed/jacket_alpine/1200/600"
+    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 3,
     title: "Driving Gloves",
     description: "Perforated leather gloves ensuring perfect grip and breathability during long scenic drives.",
     price: "120 €",
-    image: "https://picsum.photos/seed/gloves_hero_alpine/1200/600"
+    image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=1200&q=80"
   },
   {
     id: 4,
     title: "Travel Duffle",
     description: "Spacious and elegant weekender bag. Fits perfectly in the trunk of your sports car.",
     price: "320 €",
-    image: "https://picsum.photos/seed/duffle_hero_alpine/1200/600"
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 
@@ -228,54 +228,54 @@ const products = [
     name: 'Black leather Belt',
     category: 'Fashion',
     price: '95 €',
-    image: 'https://picsum.photos/seed/belt_alpine/600/800'
+    image: 'https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=600&q=80'
   },
   {
     name: 'Smartphone case',
     category: 'Every day',
     price: '55 €',
-    image: 'https://picsum.photos/seed/case_alpine/600/800'
+    image: 'https://images.unsplash.com/photo-1601593346740-925612772716?auto=format&fit=crop&w=600&q=80'
   },
   {
     name: 'Leather gloves',
     category: 'Fashion',
     price: '120 €',
-    image: 'https://picsum.photos/seed/gloves_alpine/600/800'
+    image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=600&q=80'
   },
   {
     name: 'Flash drive',
     category: 'Every day',
     price: '15 €',
-    image: 'https://picsum.photos/seed/usb_alpine/600/800'
+    image: 'https://images.unsplash.com/photo-1587202372616-9897b670a8f2?auto=format&fit=crop&w=600&q=80'
   },
   {
     name: 'Black Courrier',
     category: 'Fashion',
     price: '395 €',
-    image: 'https://picsum.photos/seed/bag1_alpine/600/800'
+    image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80'
   },
   {
     name: 'Black Duffle',
     category: 'Fashion',
     price: '420 €',
-    image: 'https://picsum.photos/seed/bag2_alpine/600/800'
+    image: 'https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=600&q=80'
   },
   {
     name: 'Lap top holster',
     category: 'Every day',
     price: '195 €',
-    image: 'https://picsum.photos/seed/laptop_alpine/600/800'
+    image: 'https://images.unsplash.com/photo-1603313011101-320f26a4f6f6?auto=format&fit=crop&w=600&q=80'
   },
   {
     name: 'Black Workbag',
     category: 'Fashion',
     price: '395 €',
-    image: 'https://picsum.photos/seed/bag3_alpine/600/800'
+    image: 'https://images.unsplash.com/photo-1554342872-034a06541bad?auto=format&fit=crop&w=600&q=80'
   },
   {
     name: 'Wallet',
     category: 'Every day',
     price: '95 €',
-    image: 'https://picsum.photos/seed/wallet_alpine/600/800'
+    image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80'
   }
 ];
